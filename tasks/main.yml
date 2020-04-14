@@ -21,7 +21,7 @@
 - name: Create SoapUI version directory
   file:
     src="{{ soapui_install_dir }}//SoapUI-{{ soapui_version }}"
-    path="{{ soapui_install_dir }}/latest"
+    path="{{ soapui_install_dir }}/{{ soapui_version }}"
     state=link
 
 #- name: Extrat SoapUI icon from jar
@@ -30,7 +30,7 @@
 
 - name: Create symlink
   file:
-    src=/opt/soapui/latest/bin/soapui.sh
+    src="/{{ soapui_install_dir }}/{{ soapui_version }}/soapui.sh"
     dest=/usr/bin/soapui
     state=link
   become: yes
